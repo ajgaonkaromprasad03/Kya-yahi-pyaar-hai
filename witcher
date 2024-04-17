@@ -5,41 +5,29 @@ Slip1:
  
 package main
 import "fmt"
-func main(){
- var num1 int 
- var num2 int
- 
-
- fmt.Println("enter first number")
-fmt.Scanf("%d",&num1)
-  fmt.Println("enter second number")
- fmt.Scanf("%d",&num2)
- 
- var choice rune
- fmt.Println("ENter the choice(+,-):")
- fmt.Scanf("%c",&choice)
- 
- switch choice{
- 
- case '+':{
- fmt.Print("Adiition of num 1 and num2 is :")
- var c int
- c=num1+num2
- fmt.Printf("%d",c)
- }
- 
- 
- case '-':{
- fmt.Print("sub of num 1 and num2 is :")
- var c int
- c=num1-num2
- 
- fmt.Printf("%d",c)
- }
- // and continue for the multilication and division operations
- }
- }
- 
+func main() {
+    var num1, num2 float64
+    var choice rune
+    fmt.Println("Enter first number:")
+    fmt.Scanln(&num1)
+    fmt.Println("Enter second number:")
+    fmt.Scanln(&num2)
+    fmt.Println("Enter the arithmetic operation (+, -, *, /):")
+    fmt.Scanf("%c", &choice)
+    var result float64
+    switch choice {
+    case '+': result = num1 + num2
+    case '-': result = num1 - num2
+    case '*': result = num1 * num2
+    case '/': if num2 != 0 {
+            result = num1 / num } else {
+            fmt.Println("Error: Division by zero")
+            return }
+    default:  fmt.Println("Invalid operation")
+        return
+    }
+    fmt.Printf("Result: %f\n", result) 
+}
  
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
